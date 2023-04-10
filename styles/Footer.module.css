@@ -1,0 +1,32 @@
+.footer {
+    margin-top: 2rem;
+    background-color: #242424;
+    color: #fff;
+    padding: 40px 20px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .links a,
+  .social a {
+    color: #fff;
+    margin-right: 20px;
+    text-decoration: none;
+  }
+  .links a:hover{
+    color:grey;
+  }
+  
+  .social a:last-child {
+    margin-right: 0;
+  }
+  
+  .copy {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
