@@ -227,6 +227,8 @@
 .courseCon{
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 .coursetext{
   color: #000000;

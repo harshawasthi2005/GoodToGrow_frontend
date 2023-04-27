@@ -88,7 +88,7 @@ export default function NavBar() {
                     : `${styles.linkdark}`
                 }`}
               >
-                Kid
+                Algorithms
               </a>
             </li>
             <li>
@@ -100,7 +100,7 @@ export default function NavBar() {
                     : `${styles.linkdark}`
                 }`}
               >
-                Algorithms
+                Features
               </a>
             </li>
           </ul>

@@ -4,11 +4,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Spinner from "@/components/Spinner";
+import Profile from "./Profile";
 export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [loggedIn,setLoggedIn]=useState(false);
 
   const handleSubmit = (e) => {
     setLoading({
@@ -24,16 +26,24 @@ export default function Login() {
           setLoading({
             loading: false,
           });
-          router.replace("/");
-        }
-      })
+          setLoggedIn({
+            loggedIn:true
+          });
+          router.push({
+            pathname: "/",
+            query: { myBooleanParam: true }
+          },'/');
+      }})
       .catch((error) => {
-        console.log(error); // Show what went wrong in the console.log() if needed.
+        console.log(error);
       });
   };
 
   return (
-    <>
+    <>  
+      {loggedIn?<div><Profile/>  
+      </div>: 
+      <div>
       {loading && <Spinner />}
       {!loading && (
         <section className={`'vh-100' ${styles.gradientcustom}`}>
@@ -100,6 +110,7 @@ export default function Login() {
           </div>
         </section>
       )}
+      </div>}
     </>
   );
 }

@@ -1,9 +1,44 @@
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
-const Signup= () => {
+import React, { useState } from 'react';
+import axios from 'axios';
+import Spinner from "@/components/Spinner";
+import { useRouter } from "next/router";
 
-  return (
-    <section className={`'vh-100' ${styles.gradientcustom}`}>
+const Signup= () => {
+    const router = useRouter();
+    const [loading, setLoading] = useState(false);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSubmit = (e) => {
+        console.log({name,email,password});
+        setLoading({
+          loading: true,
+        });
+        e.preventDefault();
+        axios
+          .post("http://localhost:5000/api/auth/createuser", { name,email, password })
+          .then((response) => {
+            console.log(response.data.success);
+            setLoading(false);
+            if (response.data.success) {
+              
+              router.push({
+                pathname: "/",
+                query: { myBooleanParam: true }
+              },'/');
+          }
+        })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
+
+  return (<>
+    {loading && <Spinner />}
+    {!loading && <section className={`'vh-100' ${styles.gradientcustom}`}>
                 <div className="container py-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -16,18 +51,21 @@ const Signup= () => {
                                         <p className="text-white-50 mb-5">Please enter your details!</p>
 
                                         <div className="form-outline form-white mb-4">
-                                            <input type="text" id="typeEmailX" className="form-control form-control-lg" placeholder='Username' />
+                                            <input type="text" id="typeEmailX" className="form-control form-control-lg" placeholder='Username' value={name}
+                          onChange={(e) => setName(e.target.value)}/>
                                         </div>
 
                                         <div className="form-outline form-white mb-4">
-                                            <input type="email" id="typeEmailX" className="form-control form-control-lg" placeholder='Email' />
+                                            <input type="email" id="typeEmailX" className="form-control form-control-lg" placeholder='Email' value={email}
+                          onChange={(e) => setEmail(e.target.value)}/>
                                         </div>
 
                                         <div className="form-outline form-white mb-4">
-                                            <input type="password" id="typePasswordX" className="form-control form-control-lg" placeholder='Password' />
+                                            <input type="password" id="typePasswordX" className="form-control form-control-lg" placeholder='Password' value={password}
+                          onChange={(e) => setPassword(e.target.value)}/>
                                         </div>
 
-                                        <button className="btn btn-outline-light btn-lg px-5" type="submit">SignUp</button>
+                                        <button className="btn btn-outline-light btn-lg px-5" type="submit" onClick={handleSubmit}>SignUp</button>
 
                                     </div>
 
@@ -40,7 +78,8 @@ const Signup= () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section>}
+            </>
   );
 };
 
