@@ -3,9 +3,9 @@ import { useState } from "react";
 
 export default function Carousel() {
   const images = [
-    "https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(15).webp",
-    "https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp",
-    "https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp",
+    "/p1.jpg",
+    "/p2.jpg",
+    "/p3.jpg",
   ];
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
@@ -35,8 +35,8 @@ export default function Carousel() {
         alt="your-image-description"
       />
       <div className={styles.overlay}>
-        <h1>Hello, World!</h1>
-        <p>This is some text overlaying the image.</p>
+        <h1>Grow with Us!</h1>
+        <p>We assure you for your growth</p>
       </div>
       <div className={styles.indContainer}>
         <div

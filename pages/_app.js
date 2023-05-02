@@ -1,4 +1,3 @@
-//import '@/styles/globals.css'
 import NavBar from "@/components/NavBar";
 import Head from "next/head";
 import Script from "next/script";

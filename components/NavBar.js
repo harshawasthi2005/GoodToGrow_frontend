@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 
+
 export default function NavBar() {
   var [theme, setTheme] = useState("light");
 
@@ -56,8 +57,8 @@ export default function NavBar() {
               </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/Course"
                 className={`${
                   theme == "light"
                     ? `${styles.linklight}`
@@ -65,11 +66,11 @@ export default function NavBar() {
                 }`}
               >
                 Courses
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href='/VideoList'
                 className={`${
                   theme == "light"
                     ? `${styles.linklight}`
@@ -77,9 +78,9 @@ export default function NavBar() {
                 }`}
               >
                 New
-              </a>
+              </Link>
             </li>
-            <li>
+            <li style={{ marginRight: '60px' }}>
               <a
                 href="#"
                 className={`${
@@ -89,18 +90,6 @@ export default function NavBar() {
                 }`}
               >
                 Algorithms
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`${
-                  theme == "light"
-                    ? `${styles.linklight}`
-                    : `${styles.linkdark}`
-                }`}
-              >
-                Features
               </a>
             </li>
           </ul>

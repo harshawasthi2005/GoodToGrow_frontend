@@ -1,5 +1,5 @@
 import Carousel from "@/components/Carousel";
-import Course from "@/components/Course";
+import Course from "@/pages/Course";
 import Footer from "@/components/Footer";
 import Notification from "@/components/Notification";
 import { useRouter } from "next/router";

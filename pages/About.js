@@ -30,9 +30,9 @@ const About = () => {
           </p>
           <h2 className={styles.h2}>Our Team</h2>
           <ul className={styles.ul}>
-            <li className={styles.li}>John Doe - CEO</li>
-            <li className={styles.li}>Jane Smith - Head of Education</li>
-            <li className={styles.li}>Bob Johnson - Lead Developer</li>
+            <li className={styles.li}>John Deo - CEO</li>
+            <li className={styles.li}>John Deo - Head of Education</li>
+            <li className={styles.li}>John Deo - Lead Developer</li>
           </ul>
         </div>
         <Footer />

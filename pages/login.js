@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Spinner from "@/components/Spinner";
-import Profile from "./Profile";
+
 export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -21,11 +21,10 @@ export default function Login() {
       .post("http://localhost:5000/api/auth/login", { email, password })
       .then((response) => {
         //console.log(response.data.success);
+        setLoading(false);
         console.log(response.data.authtoken);
         if (response.data.success) {
-          setLoading({
-            loading: false,
-          });
+          
           setLoggedIn({
             loggedIn:true
           });
@@ -41,9 +40,6 @@ export default function Login() {
 
   return (
     <>  
-      {loggedIn?<div><Profile/>  
-      </div>: 
-      <div>
       {loading && <Spinner />}
       {!loading && (
         <section className={`'vh-100' ${styles.gradientcustom}`}>
@@ -110,7 +106,6 @@ export default function Login() {
           </div>
         </section>
       )}
-      </div>}
     </>
   );
 }
