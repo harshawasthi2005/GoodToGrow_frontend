@@ -41,7 +41,7 @@ export default function NavBar() {
                     : `${styles.linkdark}`
                 }`}
               >
-                GoodToGrow
+                CultOfCoders
               </Link>
             </li>
             <li>
@@ -81,8 +81,8 @@ export default function NavBar() {
               </Link>
             </li>
             <li style={{ marginRight: '60px' }}>
-              <a
-                href="#"
+              <Link
+                href='/Algorithm'
                 className={`${
                   theme == "light"
                     ? `${styles.linklight}`
@@ -90,7 +90,7 @@ export default function NavBar() {
                 }`}
               >
                 Algorithms
-              </a>
+              </Link>
             </li>
           </ul>
           <div className={styles.search}>
